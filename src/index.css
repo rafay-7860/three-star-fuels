@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-royal: #087BC4;
+  --color-deep: #07518D;
+  --color-electric: #1598D2;
+  --color-energy: #D71920;
+  --color-burgundy: #780D16;
+  --color-sky: #EAF5FC;
+  --color-white: #FFFFFF;
+  --color-light: #F3F6F8;
+  --color-charcoal: #151C25;
+  --color-muted: #73808C;
+
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Source Sans 3", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-charcoal font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-royal) 30%, transparent);
+    color: var(--color-charcoal);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-pad {
+    @apply px-5 sm:px-8 lg:px-12 xl:px-20;
+  }
+
+  .display {
+    @apply font-display uppercase tracking-tight;
+  }
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  z-index: 100;
+  background: linear-gradient(90deg, #087BC4, #D71920);
+  transform-origin: left;
+}
+
+/* Logo subtle glow + float for brand presence */
+@keyframes logo-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 transparent);
+    transform: translateY(0);
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(8, 123, 196, 0.4))
+      drop-shadow(0 0 6px rgba(215, 25, 32, 0.25));
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes logo-ring {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(8, 123, 196, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(8, 123, 196, 0.08);
+  }
+}
+
+.logo-shell {
+  position: relative;
+  transition: transform 0.35s ease;
+  animation: logo-ring 4s ease-in-out infinite;
+}
+
+.logo-shell:hover {
+  transform: scale(1.04);
+}
+
+.logo-effect {
+  animation: logo-glow 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-effect,
+  .logo-shell {
+    animation: none;
+  }
+}
+
+/* Global connection line draw */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.connection-line {
+  stroke-dasharray: 6 8;
+  animation: dash-flow 2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connection-line {
+    animation: none;
+  }
+}
