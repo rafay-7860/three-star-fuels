@@ -19,9 +19,7 @@ export default function Logo({
   to = '/',
 }: Props) {
   const content = (
-    <span
-      className={`logo-shell inline-flex items-center rounded-sm bg-white p-1.5 ring-1 ring-sky ${className}`}
-    >
+    <span className={`logo-shell inline-flex items-center ${className}`}>
       <img
         src={logo}
         alt="Three Star Fuels"

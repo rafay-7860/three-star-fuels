@@ -134,11 +134,11 @@ export default function GlobalConnectivity() {
               </g>
             </svg>
 
-            <div className="absolute inset-[22%] flex items-center justify-center rounded-full bg-white/95 p-4 shadow-[0_0_60px_rgba(8,123,196,0.35)]">
+            <div className="absolute inset-[18%] flex items-center justify-center p-2">
               <img
                 src={logo}
                 alt="Three Star Fuels emblem"
-                className="h-full w-full object-contain logo-effect"
+                className="h-full w-full object-contain logo-effect drop-shadow-[0_0_28px_rgba(8,123,196,0.45)]"
               />
             </div>
           </div>

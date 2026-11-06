@@ -99,7 +99,6 @@
 .logo-shell {
   position: relative;
   transition: transform 0.35s ease;
-  animation: logo-ring 4s ease-in-out infinite;
 }
 
 .logo-shell:hover {
